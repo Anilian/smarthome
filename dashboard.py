@@ -8,7 +8,8 @@ import plotly.express as px
 
 app_path = str(pathlib.Path(__file__).parent.resolve())
 df = pd.read_csv(os.path.join(app_path, os.path.join("data", "smarthome.csv")))
-df2 = pd.read_csv('data/stockdata2.csv', index_col=0, parse_dates=True)
+df2 = pd.read_csv(os.path.join(app_path, os.path.join("data", "stockdata2.csv")))
+# df2 = pd.read_csv('data/stockdata2.csv', index_col=0, parse_dates=True)
 df2.index = pd.to_datetime(df2['Date'])
 app = dash.Dash(__name__, url_base_pathname='/dashboard/')
 server = app.server
